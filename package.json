@@ -20,7 +20,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonminify": "^0.4.1",
-    "scorekeepr": "^0.1.0",
+    "scorekeepr": "^0.3.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   }

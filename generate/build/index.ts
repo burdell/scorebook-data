@@ -1,5 +1,5 @@
-import { getRetrosheetScorekeepers, GameOutput } from 'scorekeepr'
-import { Scorekeeper } from 'scorekeepr/dist/Scorekeeper'
+import { GameOutput, Scorekeeper } from 'scorekeepr'
+import { getRetrosheetScorekeepers } from 'scorekeepr/retrosheet'
 
 import { sourceFolder } from '../outputFolders'
 import { ListGame, BuildConfig } from '../build.types'
@@ -9,21 +9,21 @@ export function convertToGameOutput(scorekeeper: Scorekeeper): GameOutput {
     id: scorekeeper.gameInfo.id,
     lineups: {
       home: scorekeeper.lineups.home,
-      visiting: scorekeeper.lineups.visiting,
+      visiting: scorekeeper.lineups.visiting
     },
     pitchers: {
       home: scorekeeper.lineups.homePitchers,
-      visiting: scorekeeper.lineups.visitingPitchers,
+      visiting: scorekeeper.lineups.visitingPitchers
     },
     gameplay: scorekeeper.gameplay,
     gameInfo: scorekeeper.gameInfo,
-    stats: scorekeeper.stats,
+    stats: scorekeeper.stats
   }
 }
 
 export function convertToListGame(
   { gameInfo, stats }: GameOutput,
-  config: BuildConfig,
+  config: BuildConfig
 ): ListGame {
   return {
     date: gameInfo.date,
@@ -34,7 +34,7 @@ export function convertToListGame(
     location: gameInfo.location,
     homeScore: stats.home.runs,
     visitingScore: stats.visiting.runs,
-    matchup: `${gameInfo.visitingTeam.abbreviation}-${gameInfo.homeTeam.abbreviation}`,
+    matchup: `${gameInfo.visitingTeam.abbreviation}-${gameInfo.homeTeam.abbreviation}`
   }
 }
 
