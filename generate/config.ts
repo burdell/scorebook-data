@@ -132,6 +132,44 @@ export const buildConfig: BuildConfig[] = [
     }
   },
   {
+    name: '2021 World Series Champion Atlanta Braves Season',
+    targetTeam: 'Atlanta Braves',
+    type: 'series',
+    series: [
+      {
+        retrosheetFiles: [
+          'braves_2021/regular_season1.txt',
+          'braves_2021/regular_season2.txt'
+        ],
+        seriesId: (teams, firstGameId) => `${teams}-${firstGameId}`
+      },
+      {
+        retrosheetFiles: ['braves_2021/nlds.txt'],
+        seriesId: () => `2020-NLDS-ATL-MIL`,
+        seriesName: 'NLDS vs Milwaukee Brewers'
+      },
+      {
+        retrosheetFiles: ['braves_2021/nlcs.txt'],
+        seriesId: () => `2020-NLCS-ATL-LAD`,
+        seriesName: 'NLCS vs Los Angeles Dodgers'
+      },
+      {
+        retrosheetFiles: ['braves_2021/world_series.txt'],
+        seriesId: () => `2020-WS-ATL-HOU`,
+        seriesName: 'World Series vs Houston Astros'
+      }
+    ],
+    urlSlug: 'braves-2021',
+    description:
+      'All games of the World Series Champions Atlanta Braves season',
+    gameDescriptions: {
+      SFN202109190: 'Eddie Rosario hits for the cycle on 5 pitches',
+      MIA202108180: 'Freddie Freeman hits for the cycle',
+      SDN202109240: 'Max Fried throws a complete game 98 pitch shutout',
+      HOU202111020: '🏆 BRAVES WIN 🏆'
+    }
+  },
+  {
     name: 'Random Braves Games',
     type: 'category',
     retrosheetFiles: ['random_games.txt'],
